@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,500,700");
+@import "../assets/fonts/Gotham-Light/font";
+@import "../assets/fonts/Gotham-Bold/font";
+@import "../assets/fonts/Gotham-Book/font";
+@import "../assets/fonts/Gotham-Medium/font";
+
+@mixin gotham-thin {
+  font-family: 'Gotham-Light', Lato, sans-serif;
+  font-weight: 100;
+}
+
+@mixin gotham-light {
+  font-family: 'Gotham-Light', Lato, sans-serif;
+  font-weight: 300;
+}
+
+@mixin gotham-medium {
+  font-family: 'Gotham-Medium', Lato, sans-serif;
+  font-weight: 500;
+}
+
+@mixin gotham-book {
+  font-family: 'Gotham-Book', Lato, sans-serif;
+  font-weight: 400;
+}
+
+@mixin gotham-bold {
+  font-family: 'Gotham-Bold', Lato, sans-serif;
+  font-weight: 700;
+}

@@ -1,0 +1,15 @@
+@import '../generics';
+
+input {
+    margin-bottom: 20px;
+    font-size: 30px;
+    background-color: $very-dark-gray;
+    @include boxShadow(0 0 50px $dark-grey);
+    outline: none;
+    border: none;
+    @include border-radius(3px);
+    color: white;
+    padding: 15px;
+    @include gotham-light;
+    width: 100%;
+}

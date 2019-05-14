@@ -1,0 +1,20 @@
+// BUTTONS
+@import "helpers";
+
+.button {
+  font-size: 30px;
+  outline: none;
+  border: none;
+  @include border-radius(3px);
+  color: white;
+  padding: 15px;
+  @include gotham-bold;
+  width: 100%;
+  background-color: $very-dark-gray;
+  @include boxShadow(0 0 50px $dark-grey);
+
+  &:hover {
+    background-image: $greenish-background;
+    color: $desaturated-grey;
+  }
+}

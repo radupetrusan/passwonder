@@ -1,0 +1,30 @@
+@import './../generics';
+
+.home-container {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    .buttons-container {
+        .button {
+            padding: 40px;
+            font-size: 50px;
+            @include gotham-bold;
+            @include border-radius(10px);
+            width: 300px;
+            cursor: pointer;
+            text-align: center;
+            background-color: $very-dark-gray;
+            @include boxShadow(0 0 50px $dark-grey);
+
+            &:hover {
+                background-image: $greenish-background;
+                color: $desaturated-grey;
+            }
+        }
+
+        .login-button {
+            margin-right: 60px;
+        }
+    }
+}
