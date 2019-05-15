@@ -12,9 +12,33 @@
   width: 100%;
   background-color: $very-dark-gray;
   @include boxShadow(0 0 50px $dark-grey);
+  text-align: center;
+  cursor: pointer;
 
   &:hover {
     background-image: $greenish-background;
     color: $desaturated-grey;
   }
+
+  &.link-button {
+    background-color: transparent;
+    border: 3px solid $green-active;
+    @include border-radius(100px);
+
+    &:hover {
+      background-color: $dark-grey !important;
+      background-image: none;
+      color: white !important;
+    }
+  }
 }
+
+@keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }

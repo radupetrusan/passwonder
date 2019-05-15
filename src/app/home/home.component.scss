@@ -1,30 +1,53 @@
 @import './../generics';
 
 .home-container {
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 
-    .buttons-container {
-        .button {
-            padding: 40px;
-            font-size: 50px;
-            @include gotham-bold;
-            @include border-radius(10px);
-            width: 300px;
-            cursor: pointer;
-            text-align: center;
-            background-color: $very-dark-gray;
-            @include boxShadow(0 0 50px $dark-grey);
+  .title {
+    color: $green-active;
+    font-size: 80px;
+    @include gotham-light;
+    margin-bottom: 80px;
+    // opacity: 0.4;
+    letter-spacing: 15px;
+    border: 7px solid;
+    padding: 25px;
+    border-radius: 30px;
+    -moz-animation: fadein 5s;
+    /* Firefox */
+    -webkit-animation: fadein 5s;
+    /* Safari and Chrome */
+    -o-animation: fadein 5s;
 
-            &:hover {
-                background-image: $greenish-background;
-                color: $desaturated-grey;
-            }
-        }
-
-        .login-button {
-            margin-right: 60px;
-        }
+    .reverse {
+      transform: scale(-1, 1);
+      display: inline-block;
+      margin-left: -14px;
     }
+  }
+
+  .buttons-container {
+    width: 812.41px;
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      padding: 50px;
+      font-size: 60px;
+      @include gotham-bold;
+      @include border-radius(10px);
+      width: 380px;
+      cursor: pointer;
+      text-align: center;
+      background-color: $very-dark-gray;
+      @include boxShadow(0 0 50px $dark-grey);
+
+      &:hover {
+        background-image: $greenish-background;
+        color: $desaturated-grey;
+      }
+    }
+  }
 }

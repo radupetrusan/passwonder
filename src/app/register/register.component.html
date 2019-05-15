@@ -1,4 +1,9 @@
-<div class="register-container d-flex">
+<div class="register-container d-flex flex-column">
+  
+  <div class="navigation-container">
+      <div class="button link-button" (click)="navigateBack()">&#171;	Back</div>
+  </div>
+  
   <form class="form-container  d-flex flex-column">
       <app-input #email [type]="'email'" [placeholder]="'Email'"></app-input>
       <app-input #password [type]="'password'" [placeholder]="'Password'"></app-input>
