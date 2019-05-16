@@ -10,8 +10,10 @@ export class InputComponent implements OnInit {
   @Input() placeholder: string;
   @Input() type: string;
 
-  private pressedKeys: string[];
-  private timeBetweenKeys: number[];
+  value: string;
+
+  pressedKeys: string[];
+  timeBetweenKeys: number[];
 
   private comparer: Date;
 
@@ -21,14 +23,21 @@ export class InputComponent implements OnInit {
     this._initInput();
   }
 
-  analyzeInput(event: KeyboardEvent) {
+  analyzeInput(event) {
     this.pressedKeys.push(event.key);
+
+    this.value = event.target.value;
+
+    if (!this.value) {
+      this._initInput();
+    }
 
     if (!!this.comparer) {
       const time = new Date();
       const timeBetween = time.getTime() - this.comparer.getTime();
       this.timeBetweenKeys.push(timeBetween);
       console.log(timeBetween);
+      console.log(this.value);
     }
 
     this.comparer = new Date();
