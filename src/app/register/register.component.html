@@ -1,16 +1,14 @@
 <div class="register-container d-flex flex-column">
-  
+
   <div class="navigation-container">
-      <div class="button link-button" (click)="navigateBack()">&#171;	Back</div>
+    <div class="button link-button" (click)="navigateBack()">&#171; Back</div>
   </div>
-  
-  <form class="form-container  d-flex flex-column">
-      <app-input #email [type]="'email'" [placeholder]="'Email'"></app-input>
-      <app-input #password [type]="'password'" [placeholder]="'Password'"></app-input>
-      <app-input #confirmPassword [type]="'password'" [placeholder]="'Confirm password'"></app-input>
-      <button type="submit" class="button">Register</button>
+
+  <form class="form-container d-flex flex-column">
+    <app-input #email [type]="'email'" [placeholder]="'Email'"></app-input>
+    <app-input #password [type]="'password'" [placeholder]="'Password'"></app-input>
+    <app-input #confirmPassword [type]="'password'" [placeholder]="'Confirm password'"></app-input>
   </form>
+  <button class="button w-50" (click)="register()">Register</button>
 
-  <div class="button" style="margin-left:auto; margin-right: auto; width: 200px; margin-top: 20px;" (click)="analyze()">Analyze</div>
 </div>
-

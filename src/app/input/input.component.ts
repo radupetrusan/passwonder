@@ -36,8 +36,8 @@ export class InputComponent implements OnInit {
       const time = new Date();
       const timeBetween = time.getTime() - this.comparer.getTime();
       this.timeBetweenKeys.push(timeBetween);
-      console.log(timeBetween);
-      console.log(this.value);
+      // console.log(timeBetween);
+      // console.log(this.value);
     }
 
     this.comparer = new Date();
