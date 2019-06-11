@@ -1,14 +1,13 @@
 <div class="login-container d-flex flex-column">
 
     <div class="navigation-container">
-        <div class="button link-button" (click)="navigateBack()">&#171;	Back</div>
+        <div class="button link-button" (click)="navigateBack()">&#171; Back</div>
     </div>
 
     <form class="form-container  d-flex flex-column">
-        <app-input #email [type]="'email'" [placeholder]="'Email'"></app-input>
+        <app-input #email [type]="'email'" [placeholder]="'User name'"></app-input>
         <app-input #password [type]="'password'" [placeholder]="'Password'"></app-input>
-        <button type="submit" class="button">Login</button>
+
     </form>
-  </div>
-  
-  
+    <button class="button w-50" (click)="login()">Login</button>
+</div>

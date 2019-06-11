@@ -1,6 +1,6 @@
-import { InputModel } from './models/InputModel';
+import { InputModel } from './models/input-model';
 
-const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
+export const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
 
 export function computeSimilarityIndex(firstInput: InputModel, secondInput: InputModel) {
     console.log('First Input time BTW keys: ', firstInput.timeBetweenKeys);
