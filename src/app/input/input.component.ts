@@ -24,6 +24,10 @@ export class InputComponent implements OnInit {
   }
 
   analyzeInput(event) {
+    if (event.keyCode > 8 && event.keyCode < 28) {
+      return;
+    }
+
     this.pressedKeys.push(event.key);
 
     this.value = event.target.value;

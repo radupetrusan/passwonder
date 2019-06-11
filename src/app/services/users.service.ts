@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '../models/user';
+import { take, map } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +14,9 @@ export class UsersService {
   constructor(private firestore: AngularFirestore) { }
 
   createUser(data) {
-    return new Promise<any>((resolve, reject) => {
-      this.firestore
-        .collection(this.collectionName)
-        .add({ ...data })
-        .then(res => { }, err => reject(err));
-    });
+    return this.firestore
+      .collection(this.collectionName)
+      .add({ ...data });
   }
 
   getUser(name: string, password: string) {
@@ -26,5 +25,20 @@ export class UsersService {
         .where('username', '==', name)
         .where('password', '==', password);
     });
+  }
+
+  userExists(name: string): Promise<boolean> {
+    return this.firestore.collection<User>(this.collectionName, ref => {
+      return ref
+        .where('username', '==', name);
+    })
+      .valueChanges()
+      .pipe(take(1), map(u => {
+        if (u.length > 0) {
+          return true;
+        }
+
+        return false;
+      })).toPromise();
   }
 }

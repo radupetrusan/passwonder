@@ -5,6 +5,7 @@ import { InputModel } from '../models/input-model';
 import { UsersService } from '../services/users.service';
 import { take } from 'rxjs/operators';
 import { computeSimilarityIndex, average } from '../utils';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,15 @@ import { computeSimilarityIndex, average } from '../utils';
 })
 export class LoginComponent implements OnInit {
 
+  errorText = '';
+
   @ViewChild('email') email: InputComponent;
   @ViewChild('password') password: InputComponent;
 
   constructor(
     private router: Router,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -26,6 +30,10 @@ export class LoginComponent implements OnInit {
 
   navigateBack() {
     this.router.navigate(['/']);
+  }
+
+  reset() {
+    this.password.value = null;
   }
 
   login() {
@@ -40,12 +48,14 @@ export class LoginComponent implements OnInit {
       .pipe(take(1))
       .subscribe(users => {
         if (!users.length) {
-          console.log('Wrong username or password!');
+          this.errorText = 'Wrong username or password!';
+          this.reset();
           return;
         }
 
         if (users.length > 1) {
-          console.log('There is an error!');
+          this.errorText = 'Something went wrong! Please contact an administrator!';
+          this.reset();
           return;
         }
 
@@ -54,7 +64,6 @@ export class LoginComponent implements OnInit {
         user.inputs.forEach(i => {
           const index = computeSimilarityIndex(i, input);
           indexes.push(index);
-          console.log('Index: ', index);
         });
 
         const max = Math.max(...indexes);
@@ -63,10 +72,12 @@ export class LoginComponent implements OnInit {
         console.log('Max index: ', max);
         console.log('Average index: ', avg);
 
-        if (max > 850 && avg > 750) {
-          console.log('Logged in!');
+        if (max > 900 && avg > 800) {
+          this.authService.login(user.username);
+          this.router.navigate(['/']);
         } else {
-          console.log('Different person! Access denied!');
+          this.errorText = `We couldn't recognize your typing style! Are you the real owner of this account?`;
+          this.reset();
         }
       });
   }

@@ -1,7 +1,11 @@
 <div class="home-container d-flex flex-column">
   <div class="title">PASSWONDE<span class="reverse">R</span></div>
-  <div class="d-flex buttons-container">
+  <div class="d-flex buttons-container" *ngIf="!loggedInUser">
     <div class="button login-button" (click)="buttonClicked('login')">Login</div>
     <div class="button register-button" (click)="buttonClicked('register')">Register</div>
+  </div>
+  <div class="" *ngIf="!!loggedInUser">
+    <div class="welcome" style="font-size: 70px; margin-bottom: 20px;">Welcome, {{loggedInUser}}!</div>
+    <div class="button logout-button" (click)="logout()" style="margin-right: auto; margin-left: auto;">Logout</div>
   </div>
 </div>

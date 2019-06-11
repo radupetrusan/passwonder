@@ -33,12 +33,49 @@
   }
 }
 
-@keyframes fadein {
-    from {
-      opacity: 0;
-    }
+.title {
+  color: $green-active;
+  font-size: 80px;
+  @include gotham-light;
+  margin-bottom: 80px;
+  // opacity: 0.4;
+  letter-spacing: 15px;
+  border: 7px solid;
+  padding: 25px;
+  border-radius: 30px;
+  -moz-animation: fadein 5s;
+  /* Firefox */
+  -webkit-animation: fadein 5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 5s;
 
-    to {
-      opacity: 1;
-    }
+  .reverse {
+    transform: scale(-1, 1);
+    display: inline-block;
+    margin-left: -14px;
   }
+
+  &.small {
+    font-size: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 25px;
+    border-width: 5px;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

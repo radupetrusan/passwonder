@@ -1,8 +1,12 @@
 <div class="login-container d-flex flex-column">
 
+    <div class="title small">PASSWONDE<span class="reverse">R</span></div>
+
     <div class="navigation-container">
         <div class="button link-button" (click)="navigateBack()">&#171; Back</div>
     </div>
+
+    <div class="error">{{errorText}}</div>
 
     <form class="form-container  d-flex flex-column">
         <app-input #email [type]="'email'" [placeholder]="'User name'"></app-input>
