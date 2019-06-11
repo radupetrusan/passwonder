@@ -19,6 +19,11 @@ export class InputComponent implements OnInit {
 
   constructor() { }
 
+  reset() {
+    this.value = '';
+    this._initInput();
+  }
+
   ngOnInit() {
     this._initInput();
   }
@@ -30,7 +35,7 @@ export class InputComponent implements OnInit {
 
     this.pressedKeys.push(event.key);
 
-    this.value = event.target.value;
+    // this.value = event.target.value;
 
     if (!this.value) {
       this._initInput();

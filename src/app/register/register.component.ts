@@ -35,8 +35,9 @@ export class RegisterComponent implements OnInit {
   }
 
   private reset() {
-    this.confirmPassword.value = null;
-    this.password.value = null;
+    this.confirmPassword.reset();
+    this.password.reset();
+    this.email.reset();
   }
 
   async register() {

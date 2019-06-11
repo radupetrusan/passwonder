@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   reset() {
-    this.password.value = null;
+    this.password.reset();
   }
 
   login() {
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
         console.log('Max index: ', max);
         console.log('Average index: ', avg);
 
-        if (max > 900 && avg > 800) {
+        if (max > 870 && avg > 800) {
           this.authService.login(user.username);
           this.router.navigate(['/']);
         } else {
