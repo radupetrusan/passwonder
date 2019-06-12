@@ -16,7 +16,8 @@ export class UsersService {
   createUser(data) {
     return this.firestore
       .collection(this.collectionName)
-      .add({ ...data });
+      .doc(data.username)
+      .set({ ...data });
   }
 
   getUser(name: string, password: string) {
@@ -40,5 +41,12 @@ export class UsersService {
 
         return false;
       })).toPromise();
+  }
+
+  updateUser(data) {
+    const inputs = [];
+    data.inputs.forEach(i => { inputs.push({ ...i }); });
+    data.inputs = [...inputs];
+    return this.firestore.collection(this.collectionName).doc(data.username).set({ ...data });
   }
 }

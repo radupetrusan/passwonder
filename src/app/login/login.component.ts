@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
         user.inputs.forEach(i => {
           const index = computeSimilarityIndex(i, input);
           indexes.push(index);
+          console.log('Index: ', index);
         });
 
         const max = Math.max(...indexes);
@@ -72,8 +73,11 @@ export class LoginComponent implements OnInit {
         console.log('Max index: ', max);
         console.log('Average index: ', avg);
 
-        if (max > 870 && avg > 800) {
+        if (max > 850 && avg > 800) {
           this.authService.login(user.username);
+          user.inputs.unshift(input);
+          user.inputs = user.inputs.slice(0, 10);
+          this.usersService.updateUser(user);
           this.router.navigate(['/']);
         } else {
           this.errorText = `We couldn't recognize your typing style! Are you the real owner of this account?`;
