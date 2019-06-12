@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
         console.log('Max index: ', max);
         console.log('Average index: ', avg);
 
-        if (max > 850 && avg > 800) {
+        if (max > 950 && avg > 850) {
           this.authService.login(user.username);
           user.inputs.unshift(input);
           user.inputs = user.inputs.slice(0, 10);
